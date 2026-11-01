@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Ahmed Abdelhady Ali — Copilot Studio &amp; Agentic AI Consultant</title>
+<style>
+:root{
+  --bg:#f5f8fd; --surface:#ffffff; --ink:#0b1b33; --muted:#52627a; --line:#e2e9f4;
+  --blue:#1a56db; --blue-2:#0b3ea8; --blue-soft:#e8f0fe; --navy:#071a3d;
+  --hero-a:#071a3d; --hero-b:#0b3ea8; --hero-c:#1a73e8; --on-hero:#ffffff; --on-hero-muted:#c9d8f5;
+  --radius:16px; --shadow:0 1px 2px rgba(11,27,51,.05),0 8px 24px rgba(11,27,51,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#07101f; --surface:#0d1a30; --ink:#e7eefb; --muted:#9db0cf; --line:#1c2c48;
+    --blue:#6ea8ff; --blue-2:#9cc3ff; --blue-soft:#13264a; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+    --hero-a:#040c1c; --hero-b:#0a2a6e; --hero-c:#1550c0; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin-inline:auto;padding-inline:24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--hero-a) 88%,transparent);backdrop-filter:blur(10px);border-block-end:1px solid rgba(255,255,255,.08)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{color:var(--on-hero);font-weight:700;letter-spacing:.02em}
+.brand span{color:#7fb2ff}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{color:var(--on-hero-muted);font-size:14px;font-weight:500;transition:color .2s}
+nav ul a:hover{color:#fff}
+
+/* hero */
+header.hero{background:radial-gradient(1200px 500px at 85% -10%,var(--hero-c) 0%,transparent 60%),linear-gradient(135deg,var(--hero-a) 0%,var(--hero-b) 100%);color:var(--on-hero);padding-block:84px 120px;position:relative;overflow:hidden}
+header.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,#000 30%,transparent);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#a9c8ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 14px;border-radius:999px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:#5ce1a5;box-shadow:0 0 0 4px rgba(92,225,165,.2)}
+h1{font-size:clamp(38px,5.4vw,60px);line-height:1.06;font-weight:800;letter-spacing:-.025em;margin-block:22px 14px}
+.role{font-size:clamp(18px,2.2vw,22px);color:var(--on-hero-muted);font-weight:400;max-width:560px}
+.role b{color:#fff;font-weight:600}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-block-start:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;font-size:15px;font-weight:600;transition:transform .15s,background .2s}
+.btn svg{width:18px;height:18px}
+.btn.primary{background:#fff;color:#0b3ea8}
+.btn.ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.photo{width:240px;height:290px;border-radius:24px;overflow:hidden;border:4px solid rgba(255,255,255,.18);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(2deg)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);margin-block-start:-64px;position:relative;z-index:2;border:1px solid var(--line)}
+.stat{padding:26px 24px;text-align:center}
+.stat+.stat{border-inline-start:1px solid var(--line)}
+.stat strong{display:block;font-size:34px;font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1.1}
+.stat span{font-size:13px;color:var(--muted);font-weight:500}
+
+/* sections */
+section{padding-block:72px 0}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h2{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-block:6px 28px}
+.lead{font-size:19px;color:var(--ink);max-width:820px}
+.lead + .lead{color:var(--muted);font-size:17px;margin-block-start:14px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--blue) 40%,var(--line))}
+.ico{width:42px;height:42px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;margin-block-end:14px}
+.ico svg{width:22px;height:22px}
+.card h3{font-size:16px;font-weight:700;margin-block-end:10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12.5px;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+
+/* timeline */
+.timeline{position:relative;padding-inline-start:28px}
+.timeline::before{content:"";position:absolute;inset-block:8px;inset-inline-start:6px;width:2px;background:linear-gradient(var(--blue),var(--line))}
+.job{position:relative;margin-block-end:20px}
+.job::before{content:"";position:absolute;inset-inline-start:-28px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--blue)}
+.job.feature::before{background:var(--blue);box-shadow:0 0 0 5px var(--blue-soft)}
+.job .card{padding:22px 26px}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.job h3{font-size:18px;margin:0}
+.org{color:var(--blue);font-weight:600;font-size:15px}
+.when{font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:3px 12px;border-radius:999px;white-space:nowrap}
+.job p{color:var(--muted);font-size:15px;margin-block-start:8px}
+.job ul{list-style:none;margin-block-start:12px;display:grid;gap:8px}
+.job li{position:relative;padding-inline-start:20px;font-size:15px;color:var(--ink)}
+.job li::before{content:"";position:absolute;inset-inline-start:0;top:10px;width:8px;height:2px;background:var(--blue)}
+.compact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* creds */
+.creds{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.cert-list{list-style:none;display:grid;gap:12px}
+.cert-list li{display:flex;gap:12px;align-items:center;font-size:15px;font-weight:500}
+.cert-list li svg{flex:none;width:20px;height:20px;color:var(--blue)}
+.lang{display:flex;justify-content:space-between;padding-block:10px;border-block-end:1px solid var(--line);font-size:15px}
+.lang:last-child{border:0}
+.lang em{font-style:normal;color:var(--muted)}
+
+/* cta */
+.cta{margin-block:72px 0;background:linear-gradient(135deg,var(--hero-b),var(--hero-c));color:#fff;border-radius:24px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta h2{margin:0 0 6px;color:#fff}
+.cta p{color:#d6e4ff}
+footer{text-align:center;color:var(--muted);font-size:13px;padding-block:40px}
+
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr}
+  .photo{width:160px;height:195px;order:-1;transform:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-inline-start:0}
+  .stat:nth-child(n+3){border-block-start:1px solid var(--line)}
+  .skills,.creds,.compact{grid-template-columns:1fr}
+  nav ul{display:none}
+  .cta{padding:32px}
+}
+@media print{
+  nav{display:none}
+  body{background:#fff}
+  header.hero{padding-block:40px 80px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.stats{box-shadow:none;break-inside:avoid}
+  .cta{-webkit-print-color-adjust:exact;print-color-adjust:exact;break-inside:avoid}
+  section{padding-block:32px 0}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Ahmed<span>.</span>Ali</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><i></i>Now at SoftwareOne</span>
+      <h1>Ahmed Abdelhady Ali</h1>
+      <p class="role"><b>Microsoft Copilot Studio &amp; Agentic AI Consultant</b> at SoftwareOne, helping organizations design, build and scale AI agents on Microsoft Cloud.</p>
+      <div class="contact">
+        <a class="btn primary" href="mailto:proghady@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          proghady@gmail.com</a>
+        <a class="btn ghost" href="tel:+201002630343">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          +20 100 263 0343</a>
+        <span class="btn ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Cairo, Egypt</span>
+      </div>
+    </div>
+    <div class="photo"><img src="data:image/jpeg;base64,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" alt="Portrait of Ahmed Abdelhady Ali"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><strong>17+</strong><span>Years in technology</span></div>
+    <div class="stat"><strong>5.5</strong><span>Years at Microsoft</span></div>
+    <div class="stat"><strong>MEA</strong><span>Regional coverage</span></div>
+    <div class="stat"><strong>4</strong><span>Microsoft certifications</span></div>
+  </div>
+
+  <section id="about">
+    <div class="kicker">About</div>
+    <h2>Turning business needs into scalable AI solutions</h2>
+    <p class="lead">Copilot Studio &amp; Agentic AI Consultant at SoftwareOne with 17+ years across software development, cloud transformation and enterprise solution delivery — with a proven record of helping organizations, particularly in education, adopt Microsoft Cloud and AI, including Copilot.</p>
+    <p class="lead">I translate business needs into scalable technical solutions, influence decision-makers and lead large transformation initiatives that deliver measurable value.</p>
+  </section>
+
+  <section id="expertise">
+    <div class="kicker">Expertise</div>
+    <h2>What I work with</h2>
+    <div class="skills">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></div>
+        <h3>AI &amp; Copilot</h3><div class="tags"><span>Microsoft 365 Copilot</span><span>Copilot Studio</span><span>AI Agents</span><span>Orchestration</span><span>MCP Integrations</span></div></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
+        <h3>Power Platform</h3><div class="tags"><span>Power Automate</span><span>Power BI</span><span>Dataverse</span><span>Custom Connectors</span><span>Low-code</span></div></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Modern Workplace</h3><div class="tags"><span>Microsoft 365</span><span>SharePoint Online</span><span>Teams</span><span>Exchange Online</span><span>Viva Suite</span></div></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Identity &amp; Security</h3><div class="tags"><span>Entra ID</span><span>Conditional Access</span><span>Zero Trust</span><span>Governance</span></div></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Endpoint Management</h3><div class="tags"><span>Intune</span><span>Windows Autopilot</span><span>MDM / MAM</span><span>Windows 10/11</span></div></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Development &amp; Integration</h3><div class="tags"><span>Microsoft Graph</span><span>REST APIs</span><span>PowerShell</span><span>C# / .NET</span><span>SQL Server</span><span>Azure</span></div></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="kicker">Experience</div>
+    <h2>Career highlights</h2>
+    <div class="timeline">
+      <div class="job feature"><div class="card">
+        <div class="job-head"><div><h3>Microsoft Copilot Studio &amp; Agentic AI Consultant</h3><div class="org">SoftwareOne</div></div><span class="when">2026 – Present</span></div>
+        <ul>
+          <li>Design and deliver AI agents with Microsoft Copilot Studio, from use-case discovery through orchestration and deployment.</li>
+          <li>Help customers adopt Microsoft 365 Copilot and agentic AI securely, connecting agents to enterprise data and processes.</li>
+        </ul>
+      </div></div>
+      <div class="job"><div class="card">
+        <div class="job-head"><div><h3>AI Business Solutions Specialist, MEA</h3><div class="org">Microsoft</div></div><span class="when">Dec 2020 – Jun 2026</span></div>
+        <ul>
+          <li>Designed and executed multi-year cloud and AI adoption strategies for higher-education customers across the Middle East &amp; Africa.</li>
+          <li>Architected end-to-end solutions across Microsoft 365, Azure, Power Platform and Copilot to modernize education environments.</li>
+          <li>Championed Copilot, AI agents and automation use cases to transform teaching, learning and operations.</li>
+          <li>Orchestrated Microsoft sales, partners and SMEs to deliver integrated solutions, and fed field insights back to global product teams.</li>
+        </ul>
+      </div></div>
+      <div class="job"><div class="card">
+        <div class="job-head"><div><h3>Lead Software Engineer</h3><div class="org">ITWORX Education · Qatar</div></div><span class="when">Apr 2020 – Oct 2020</span></div>
+        <p>Delivered Qatar’s online portal for certificate equivalency and prior approval on SharePoint 2016 and Nintex.</p>
+      </div></div>
+      <div class="job"><div class="card">
+        <div class="job-head"><div><h3>Senior Software Technical Consultant / Team Leader</h3><div class="org">Globesoft · Qatar</div></div><span class="when">Feb 2017 – Apr 2020</span></div>
+        <p>Led pre-sales (POCs, tenders, proposals) and delivery of government portals and workflows — including Qatar Investment Authority, Qatar Public Prosecution and Qatar Leadership Centre.</p>
+      </div></div>
+      <div class="compact">
+        <div class="job"><div class="card">
+          <div class="job-head"><div><h3>Software Technical Consultant</h3><div class="org">CrossWorkers · Egypt</div></div></div>
+          <p><span class="when">Mar 2015 – Feb 2017</span></p>
+        </div></div>
+        <div class="job"><div class="card">
+          <div class="job-head"><div><h3>Lead / Senior Software Engineer</h3><div class="org">ITWORX · Egypt</div></div></div>
+          <p><span class="when">Nov 2012 – Feb 2015</span></p>
+        </div></div>
+        <div class="job"><div class="card">
+          <div class="job-head"><div><h3>Senior Software Developer</h3><div class="org">ORCTECH · Egypt</div></div></div>
+          <p><span class="when">Dec 2010 – Nov 2012</span></p>
+        </div></div>
+        <div class="job"><div class="card">
+          <div class="job-head"><div><h3>Junior Software Developer</h3><div class="org">Arabic Center for Information · Egypt</div></div></div>
+          <p><span class="when">Mar 2009 – Dec 2010</span></p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="kicker">Credentials</div>
+    <h2>Education &amp; certifications</h2>
+    <div class="creds">
+      <div class="card">
+        <ul class="cert-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>B.Sc. Computer Science — Mansoura University, 2007</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 14-1.5 8L12 20l4.5 2L15 14"/></svg>Microsoft Azure AI Fundamentals</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 14-1.5 8L12 20l4.5 2L15 14"/></svg>Microsoft 365 Fundamentals</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 14-1.5 8L12 20l4.5 2L15 14"/></svg>Microsoft Power Platform Fundamentals</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 14-1.5 8L12 20l4.5 2L15 14"/></svg>MCTS — SharePoint 2010 Application Development</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Languages</h3>
+        <div class="lang"><span>Arabic</span><em>Native</em></div>
+        <div class="lang"><span>English</span><em>Fluent</em></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta" id="contact">
+    <div><h2>Let’s build your next AI agent</h2><p>Copilot Studio, Microsoft 365 Copilot and agentic AI engagements.</p></div>
+    <a class="btn primary" href="mailto:proghady@gmail.com">Get in touch →</a>
+  </div>
+
+  <footer>© 2026 Ahmed Abdelhady Ali · Cairo, Egypt</footer>
+</div>
+</body>
+</html>
